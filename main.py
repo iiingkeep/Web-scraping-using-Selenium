@@ -56,14 +56,7 @@ class GoogleKeywordScreenshooter:
             elements_to_screenshot.append(search_result)
         for index, element in enumerate(elements_to_screenshot):
             element.screenshot(f"{self.screenshots_dir}/{self.keyword}({index}).png")
-
-  def getMaxPages(self):
-    pages = WebDriverWait(self.browser, 5).until(EC.presence_of_all_elements_located((By.XPATH,'//tr[@jsname="TeSSVd"]/child::td')))
-    pages_number = len(pages)
-    if pages_number == 12:
-        max_page = 10
-    else:
-        max_page = pages_number - 1
+            time.sleep(0.5)
 
   def finish(self):
     self.browser.quit()
